@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider, useApp } from './context/AppContext';
 import MainLayout from './components/layout/MainLayout';
 import Login from './pages/Login';
@@ -36,7 +36,7 @@ function PublicLoginRoute() {
 export default function App() {
   return (
     <AppProvider>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/login" element={<PublicLoginRoute />} />
           <Route element={<ProtectedRoutes />}>
@@ -54,7 +54,7 @@ export default function App() {
           </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </AppProvider>
   );
 }
